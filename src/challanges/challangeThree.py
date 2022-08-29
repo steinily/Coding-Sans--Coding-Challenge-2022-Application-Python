@@ -15,7 +15,7 @@
 
 import json
 
-with open(r".\src\data\bakery.json") as f:
+with open(r"./src/data/bakery.json") as f:
     data = json.load(f)
     f.close()
 
@@ -23,6 +23,7 @@ recipes = data['recipes']
 lastWeekSales = data['salesOfLastWeek']
 wholeSale = data['wholesalePrices']
 
+# Creating a list of dictionaries with the ingredients and the amount sold for each cake.
 ingredentsForSoldCakes = []
 TaskSumTotalSales = 0
 for i in range(len(lastWeekSales)):
@@ -35,11 +36,12 @@ for i in range(len(lastWeekSales)):
             TaskSumTotalSales += int(recipes[j]['price'].split(" ")[0])* int(lastWeekSales[i]['amount'])
 
 
+# Converting the amount of ingredients to the amount of ingredients needed for the sold cakes.
 for sub in ingredentsForSoldCakes:
     for i in range(len(sub['ingredients'])):
         sold =int(sub['sold'])
         ingredient = str(sub['ingredients'][i]['amount']).split(" ")
-        amount = float(ingredient[0])*float(sold)
+        amount = float(ingredient[0])*int(sold)
         if ingredient[1] == 'g':
             sub['ingredients'][i]['amount'] = str(amount/1000) + " kg"
 
@@ -48,6 +50,7 @@ for sub in ingredentsForSoldCakes:
         else:
             sub['ingredients'][i]['amount'] = str(amount) + " pc"
 
+# Creating a list of unique ingredients and a list of all ingredients.
 ingredientTypeUniq = []
 ingredientss = []
 for i in range(len(ingredentsForSoldCakes)):
@@ -58,6 +61,8 @@ for i in range(len(ingredentsForSoldCakes)):
 ingredientTypeUniq = list(set(ingredientTypeUniq))
 
 
+# Creating a list of dictionaries with the unique ingredients and the amount of each ingredient needed
+# for the sold cakes.
 ingredientSum = []
 for j in range(len(ingredientTypeUniq)):
     amount = 0.00
@@ -71,6 +76,7 @@ for j in range(len(ingredientTypeUniq)):
         'name': ingredientTypeUniq[j],
         'amount': str(amount) + " " + unit})
 
+# Calculating the price of the ingredients needed for the sold cakes.
 lista =[]
 for i in range(len(ingredientSum)):
     whPrice = 0.00
@@ -81,15 +87,17 @@ for i in range(len(ingredientSum)):
             updAmount = float(ingredientSum[i]['amount'].split(" ")[0])
             whAmount = float(wholeSale[j]['amount'].split(" ")[0])
             whPrice = float(wholeSale[j]['price'])/whAmount
-            newAmount = updAmount/whAmount
             unit = ingredientSum[i]['amount'].split(" ")[1]
     lista.append({
-        'totalPrice': int(whPrice*newAmount)
+        'totalPrice': (whPrice*updAmount)
     })
 
+# Calculating the total price of the ingredients needed for the sold cakes.
 ingredientPrice = 0
 for i in range(len(lista)):
-    ingredientPrice += int(lista[i]['totalPrice'])
-print(TaskSumTotalSales)
-print(ingredientPrice)
+    ingredientPrice += (lista[i]['totalPrice'])
 
+TaskSumTotalProfit = int(TaskSumTotalSales - ingredientPrice)
+
+with open(r"./src/answers/answerThreePython.json", 'w', encoding='utf-8') as f:
+    json.dump(TaskSumTotalProfit, f, ensure_ascii=False, indent=4)
