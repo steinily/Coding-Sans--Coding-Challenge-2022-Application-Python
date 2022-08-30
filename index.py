@@ -14,8 +14,8 @@ print("""
     calculated based on his last week's sales, and the price he sells the sweets for.
 
 -----------------------------------------------------------------------------------------
-Answer : ./src/answers/answerOne.json
-Code:    ./src/challanges/chalanges-one.js
+Answer : ./src/answers/answerOnePython.json
+Code:    ./src/challanges/challangeOne.py
 
 -----------------------------------------------------------------------------------------
                       Challenge  2
@@ -32,8 +32,8 @@ Code:    ./src/challanges/chalanges-one.js
     and return an object, with the three options containing an array 
     of objects with the name,and price of each item.
 -----------------------------------------------------------------------------------------
-    Answer : ./src/answers/answerTwo.json
-    Code:    ./src/challanges/chalanges-two.js
+    Answer : ./src/answers/answerTwoPython.json
+    Code:    ./src/challanges/challangeTwo.py
 
 -----------------------------------------------------------------------------------------
                       Challenge  3
@@ -50,8 +50,8 @@ Code:    ./src/challanges/chalanges-one.js
     and the cost of producing them, 
     calculated based on the wholesale price of the ingredients used.
 -----------------------------------------------------------------------------------------
-Answer : ./src/answers/answerThree.json
-Code:    ./src/challanges/chalanges-three.js
+Answer : ./src/answers/answerThreePython.json
+Code:    ./src/challanges/challangeThree.py
 
 -----------------------------------------------------------------------------------------
                       Challenge  4
@@ -81,8 +81,8 @@ Code:    ./src/challanges/chalanges-three.js
      structure of the example below.
 
 -----------------------------------------------------------------------------------------
-Answer : ./src/answers/answerFour.json
-Code:    ./src/challanges/chalanges-four.js
+Answer : ./src/answers/answerFourPython.json
+Code:    ./src/challanges/challangeFour.py
 
 -----------------------------------------------------------------------------------------
           Challenge  5
@@ -135,8 +135,8 @@ Code:    ./src/challanges/chalanges-four.js
             }
         ]
 -----------------------------------------------------------------------------------------
-Answer : ./src/answers/answerFive.json
-Code:    ./src/challanges/chalanges-five.js
+Answer : ./src/answers/answerFivePython.json
+Code:    ./src/challanges/challangeFive.py
 
 -----------------------------------------------------------------------------------------
           Challenge  6
@@ -161,7 +161,7 @@ Code:    ./src/challanges/chalanges-five.js
 
 
 Answer : ./src/answers/answerSixPython.json
-Code:    ./src/challanges/challangesSix.py
+Code:    ./src/challanges/challangeSix.py
 -----------------------------------------------------------------------------------------
 
 My information:

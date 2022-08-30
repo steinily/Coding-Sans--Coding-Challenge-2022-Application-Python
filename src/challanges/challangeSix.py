@@ -23,7 +23,7 @@
 
 import json
 import math
-from pickle import TRUE
+
 
 with open(r".\src\data\bakery.json") as f:
     data = json.load(f)
@@ -169,3 +169,4 @@ for i in range(len(shoppingListForClerk)):
 
 with open(r".\src\answers\answerSixPython.json", 'w', encoding='utf-8') as f:
     json.dump(shoppingListForClerk, f, ensure_ascii=False, indent=4)
+    f.close()

@@ -14,7 +14,6 @@
 
 # ------------------------------------------------------------------------------------
 
-from ast import Num
 import json
 
 with open(r".\src\data\bakery.json") as f:
@@ -32,6 +31,9 @@ for i in range(len(lastWeekSales)):
     for j in range(len(recipes)):
         if lastWeekSales[i]['name'] == recipes[j]['name']:
             TaskSumTotalSales += int(recipes[j]['price'].split(" ")[0])* int(lastWeekSales[i]['amount'])
+
+def getTaskSumTotalSales():
+    return TaskSumTotalSales
 
 with open(r".\src\answers\answerOnePython.json", 'w', encoding='utf-8') as f:
     json.dump(TaskSumTotalSales, f, ensure_ascii=False, indent=4)
